@@ -1,0 +1,100 @@
+﻿<table id="@{@ViewBag.id}-table"></table>
+
+<script>
+    var tableId = "#@{@ViewBag.id}-table";
+    var addId = "@{@ViewBag.id}-add";
+    var removeId = "@{@ViewBag.id}-remove";
+    var updateId = "@{@ViewBag.id}-update";
+    var saveId = "@{@ViewBag.id}-save";
+    $(tableId).datagrid({
+        fit: true,
+        fitColumns: true,
+        striped: true,
+        loadMsg: "玩命加载中...",
+        rownumbers: true,
+        singleSelect: true,
+        pagination: true,
+        showFooter: true,
+        url: "/Admin/GetStudentListJson",
+        columns: [[
+            { field: 'Student_StuId', title: '学号', width: 100, editor: "validatebox" },
+            { field: 'Student_Name', title: '姓名', width: 100, editor: "validatebox" },
+            { field: 'Student_Sex', title: '性别', width: 100, formatter: StudentSexConvert, editor: "validatebox" }
+        ]],
+        toolbar:[{
+            id: addId,
+            text:'添加',
+            iconCls:'icon-add',
+            handler:function(){
+                $('#btnsave').linkbutton('enable');
+                alert('add')
+            }
+        }, '-', {
+            id: removeId,
+            text: '删除',
+            disabled: true,
+            iconCls: 'icon-remove',
+            handler: function ()
+            {
+                $('#btnsave').linkbutton('enable');
+                alert('add')
+            }
+        }, '-', {
+            id: updateId,
+            text: '修改',
+            disabled:true,
+            iconCls: 'icon-edit',
+            handler: function ()
+            {
+                var row = $(tableId).datagrid("getSelected");
+                var index = $(tableId).datagrid("getRowIndex", row);
+                $(tableId).datagrid("beginEdit", index);
+                $("#" + saveId).linkbutton("enable");
+                $("#" + updateId).linkbutton("disable");
+            }
+        }, '-', {
+            id: saveId,
+            text: '保存',
+            disabled: true,
+            iconCls: 'icon-save',
+            handler: function ()
+            {
+                var row = $(tableId).datagrid("getSelected");
+                var index = $(tableId).datagrid("getRowIndex", row);
+                $.ajax({
+                    url: "/Admin/UpadteStudentInfo",
+                    type: "post",
+                    data: [{
+                        student_id: row.Student_StuId,
+                    }],
+                    success:function(data)
+                    {
+                        if(data.IsUpdate)
+                        {
+                            $.messager.alert("消息", "修改成功！", "info");
+                        }
+                        else
+                        {
+                            $.messager.alert("消息", "修改失败！"+data.Error, "error");
+                        }
+                        $(tableId).datagrid("endEdit", index);
+                    }
+                });
+            }
+        }],
+        onSelect: function (rowIndex, rowData)
+        {
+            $("#" + removeId).linkbutton("enable");
+            $("#" + updateId).linkbutton("enable");
+        }
+    });
+
+    function StudentSexConvert(value)
+    {
+        if (value)
+        {
+            return "男";
+        }
+        return "女";
+    }
+</script>

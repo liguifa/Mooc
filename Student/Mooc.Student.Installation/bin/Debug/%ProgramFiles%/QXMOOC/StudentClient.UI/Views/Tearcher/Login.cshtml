@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>慕课校园</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="~/Static/Js/jquery.min.js"></script>
+    <link href="~/Static/Css/tearcher.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function ()
+        {
+            $('#login').click(function ()
+            {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                $.ajax({
+                    type: "post",
+                    url: "/Tearcher/LoginIn",
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    success:function(data)
+                    {
+                        if(data.IsLogin)
+                        {
+                            window.location.href = "/Tearcher/Index";
+                        }
+                        else
+                        {
+                            alert("用户名或密码错误.");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <p class="logo">
+            <img src="~/Static/Images/logo.png" />
+        </p>
+        <p class="tip">A journey of a thousand miles begins with single step</p>
+        <input type="hidden" id="client_base_url" name="client_base_url" value="">
+        <input type="hidden" id="client_action_base_url" name="client_action_base_url" value="">
+        <dl>
+            <dt>用户名：</dt>
+            <dd><input type="text" name="username" id="username" placeholder="请输入您的账号"></dd>
+        </dl>
+        <dl>
+            <dt>密&nbsp;&nbsp;&nbsp;码：</dt>
+            <dd><input type="password" name="password" id="password" placeholder="请输入您的密码"></dd>
+        </dl>
+
+        <div class="verify_code"></div>
+        <p class="forgot-psd"><a href="/user/password/reset/telecom/">忘记密码？</a> </p>
+        <p class="login-btn"><button type="button" id="login">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陆</button> </p>
+    </div>
+</body>
+</html>

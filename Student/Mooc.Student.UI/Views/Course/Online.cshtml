@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    StudentClient.ViewModels.OnlineModel online = ViewBag.courses as StudentClient.ViewModels.OnlineModel;
+    ViewBag.navTitle = "在线课堂";
+    ViewBag.Title = "在线课堂";
+}
+
+<div class="filter"></div>
+<ul class="aui-list-view aui-grid-view course-list-item">
+    @foreach (StudentClient.Models.Cours course in online.Courses)
+            {
+        <li class="aui-list-view-cell aui-img aui-col-xs-6 course" onclick="window.location.href = '/Course/Video/'">
+            <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+            <div class="aui-img-body">
+                @course.Course_Name
+            </div>
+        </li>
+    }
+</ul>

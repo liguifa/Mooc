@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_tearcher.cshtml";
+    StudentClient.ViewModels.TearcherCourseModel courses = ViewBag.courses as StudentClient.ViewModels.TearcherCourseModel;
+}
+<script>
+    $(document).ready(function ()
+    {
+        $("#js_left_list li:eq(1)").addClass("left_list_active");
+
+        $(".del-course").click(function ()
+        {
+            var node = $(this);
+            layer.confirm('你确定删除该课程吗？', {
+                btn: ['确定', '取消'] //按钮
+            }, function ()
+            {
+                var index = layer.open({
+                    type: 1,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 0, //不显示关闭按钮
+                    shift: 2,
+                    shadeClose: true, //开启遮罩关闭
+                    content: '<div style="height:106px;width:260px; overflow: hidden;"><img src="/Static/layer/skin/default/loading-2.gif" style="margin:20px 115px" /><br /><b style="margin:0px 70px">玩命删除中...</b></div>'
+                });
+                var id = node.attr("data-id");
+                $.ajax({
+                    type: "post",
+                    url: "/Tearcher/DelTearcher",
+                    data: {
+                        id: id
+                    },
+                    success: function (data)
+                    {
+                        if (data.IsDel)
+                        {
+                            layer.msg('删除成功!');
+                            node.parents("li").remove();
+                            layer.close(index);
+                        }
+                        else
+                        {
+                            layer.msg('删除失败！');
+                        }
+                    }
+                })
+            });
+            //if (isDel)
+            //{
+            //
+            //}
+        });
+    });
+</script>
+<ul class="bm-menu-bd">
+    @foreach (StudentClient.Models.Cours course in courses.Courses)
+    {
+        <li class="mod mod-1 " data-termid="100084461" data-id="86027" data-aid="18527" data-pay="1" data-aname="@course.Course_College" data-billno="0">
+            <div class="bm-menu-name">报名时间: @course.Course_Time </div>
+            <div class="bm-menu-more bm-left bm-menu-box">
+                <div class="bm-menu-imgparent">
+                    <a href="//ke.qq.com/course/86027" target="_blank" class="bm-menu-img">
+                        <img src="~/Static/update/images/@{@course.Course_Id}.png" 班" width="90" height="50">
+                    </a>
+                </div>
+                <div class="bm-menu-info">
+                    <p class="bm-menu-info-top">
+                        <a class="ellipsis" target="_blank" href="//ke.qq.com/course/86027" title="Ghaye&nbsp;English-新概念英语起点班">@course.Course_Name </a>
+                    </p>
+                    <p class="bm-menu-info-bottom">
+                        <span target="_blank" class="bm-menu-teacher" href="" title="Ablajan老师">@course.Course_Major</span>
+                        |
+                        <a target="_blank" class="bm-menu-agency" href="http://ghaye.ke.qq.com" title="@course.Course_College">@course.Course_College</a>
+                    </p>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="bm-menu-cost bm-left">
+                @if (course.Course_IsOpen)
+                {
+                    <p class="price free">
+                        开放
+                    </p>
+                }
+                else
+                {
+                    <p class="price free">
+                        暂不开放
+                    </p>
+                }
+            </div>
+            <div class="bm-menu-status bm-left">
+                <p class="bm-p-black">@course.Course_Time</p>
+            </div>
+            <div class="bm-menu-action bm-left">
+                <a class="dropdown-title del-course" href="javascript:void(0);" target="_blank" data-id="@course.Course_Id">
+                    <span data-action="comment_detail_new" data-id="86027" data-isstudent="1" data-islevelhigh="1" data-istaskdone="1" data-status="0" data-isapplied="1">删除课程</span>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </li>
+    }
+</ul>

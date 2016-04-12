@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Answer_Id" />
+    </Key>
+    <Property Name="Answer_Id" Type="Guid" Nullable="false" />
+    <Property Name="Answer_Student" Type="Guid" Nullable="false" />
+    <Property Name="Answer_Homework" Type="Guid" Nullable="false" />
+    <Property Name="Answer_Context" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Homework" Relationship="Self.FK_Answers_Homeworks" FromRole="Answers" ToRole="Homeworks" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Answers_Students" FromRole="Answers" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Course_Id" />
+    </Key>
+    <Property Name="Course_Id" Type="Guid" Nullable="false" />
+    <Property Name="Course_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_Teacher" Type="Guid" Nullable="false" />
+    <Property Name="Course_IsGeneral" Type="Boolean" Nullable="false" />
+    <Property Name="Course_Week" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_IsOpen" Type="Boolean" Nullable="false" />
+    <Property Name="Course_DayOfWeek" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Course_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_Major" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Course_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_Courses_Teachers" FromRole="Courses" ToRole="Teachers" />
+    <NavigationProperty Name="Homeworks" Relationship="Self.FK_Homeworks_Courses" FromRole="Courses" ToRole="Homeworks" />
+    <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Courses" FromRole="Courses" ToRole="Notes" />
+    <NavigationProperty Name="Videos" Relationship="MoocModel.FK_Videos_Courses" FromRole="Cours" ToRole="Video" />
+    <Property Name="Course_IsOffline" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Homework">
+    <Key>
+      <PropertyRef Name="Homework_Id" />
+    </Key>
+    <Property Name="Homework_Id" Type="Guid" Nullable="false" />
+    <Property Name="Homework_Course" Type="Guid" Nullable="false" />
+    <Property Name="Homework_CourseNum" Type="Int32" Nullable="false" />
+    <Property Name="Homework_Type" Type="Int32" Nullable="false" />
+    <Property Name="Homework_Context" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Homework_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Homeworks" FromRole="Homeworks" ToRole="Answers" />
+    <NavigationProperty Name="Cours" Relationship="Self.FK_Homeworks_Courses" FromRole="Homeworks" ToRole="Courses" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="Note_Id" />
+    </Key>
+    <Property Name="Note_Id" Type="Guid" Nullable="false" />
+    <Property Name="Note_Course" Type="Guid" Nullable="false" />
+    <Property Name="Note_Student" Type="Guid" Nullable="false" />
+    <Property Name="Note_Context" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Note_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="Self.FK_Notes_Courses" FromRole="Notes" ToRole="Courses" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Notes_Students" FromRole="Notes" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="School_Id" />
+    </Key>
+    <Property Name="School_Id" Type="Guid" Nullable="false" />
+    <Property Name="School_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="School_Logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="School_Introduction" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="School_IsRegister" Type="Boolean" Nullable="false" />
+    <Property Name="School_IsOpen" Type="Boolean" Nullable="false" />
+    <Property Name="School_Admin" Type="Guid" Nullable="false" />
+    <Property Name="School_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Schools_Students" FromRole="Schools" ToRole="Students" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_Schools" FromRole="Schools" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Student_Id" />
+    </Key>
+    <Property Name="Student_Id" Type="Guid" Nullable="false" />
+    <Property Name="Student_StuId" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_School" Type="Guid" Nullable="false" />
+    <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Student_College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Major" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_Sex" Type="Boolean" Nullable="false" />
+    <Property Name="Student_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Students" FromRole="Students" ToRole="Answers" />
+    <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Students" FromRole="Students" ToRole="Notes" />
+    <NavigationProperty Name="School" Relationship="Self.FK_Schools_Students" FromRole="Students" ToRole="Schools" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+    </Key>
+    <Property Name="Teacher_Id" Type="Guid" Nullable="false" />
+    <Property Name="Teacher_TeaId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_School" Type="Guid" Nullable="false" />
+    <Property Name="Teacher_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Teacher_Sex" Type="Boolean" Nullable="false" />
+    <Property Name="Teacher_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Teachers" FromRole="Teachers" ToRole="Courses" />
+    <NavigationProperty Name="School" Relationship="Self.FK_Teachers_Schools" FromRole="Teachers" ToRole="Schools" />
+    <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Teachers" FromRole="Teachers" ToRole="Videos" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="Video_Id" />
+    </Key>
+    <Property Name="Video_Id" Type="Guid" Nullable="false" />
+    <Property Name="Video_Major" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_Teacher" Type="Guid" Nullable="false" />
+    <Property Name="Video_College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_IsGeneral" Type="Boolean" Nullable="false" />
+    <Property Name="Video_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_IsOpen" Type="Boolean" Nullable="false" />
+    <Property Name="Video_IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_Videos_Teachers" FromRole="Videos" ToRole="Teachers" />
+    <Property Name="Video_CourseID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="MoocModel.FK_Videos_Courses" FromRole="Video" ToRole="Cours" />
+    <Property Name="Video_SerialNumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Answers_Homeworks">
+    <End Role="Homeworks" Type="Self.Homework" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Homeworks">
+        <PropertyRef Name="Homework_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Answer_Homework" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Answer_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_Teachers">
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="Course_Teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Homeworks_Courses">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+    <End Role="Homeworks" Type="Self.Homework" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Homeworks">
+        <PropertyRef Name="Homework_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Courses">
+    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+    <End Role="Notes" Type="Self.Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Notes">
+        <PropertyRef Name="Note_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="Notes" Type="Self.Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Notes">
+        <PropertyRef Name="Note_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="Schools" Type="Self.School" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="School_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teachers_Schools">
+    <End Role="Schools" Type="Self.School" Multiplicity="1" />
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="School_Id" />
+      </Principal>
+      <Dependent Role="Teachers">
+        <PropertyRef Name="Teacher_School" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Videos_Teachers">
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="Videos" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="Videos">
+        <PropertyRef Name="Video_Teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MoocEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Courses" EntityType="Self.Cours" />
+    <EntitySet Name="Homeworks" EntityType="Self.Homework" />
+    <EntitySet Name="Notes" EntityType="Self.Note" />
+    <EntitySet Name="Schools" EntityType="Self.School" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <EntitySet Name="Videos" EntityType="Self.Video" />
+    <AssociationSet Name="FK_Answers_Homeworks" Association="Self.FK_Answers_Homeworks">
+      <End Role="Homeworks" EntitySet="Homeworks" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Students" Association="Self.FK_Answers_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_Teachers" Association="Self.FK_Courses_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Homeworks_Courses" Association="Self.FK_Homeworks_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Homeworks" EntitySet="Homeworks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Courses" Association="Self.FK_Notes_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Notes" EntitySet="Notes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Students" Association="Self.FK_Notes_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Notes" EntitySet="Notes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Students" Association="Self.FK_Schools_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teachers_Schools" Association="Self.FK_Teachers_Schools">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="Teachers" EntitySet="Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Videos_Teachers" Association="Self.FK_Videos_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Videos" EntitySet="Videos" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MoocModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MoocModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_Videos_Courses" Association="MoocModel.FK_Videos_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_Videos_Courses">
+    <End Type="MoocModel.Cours" Role="Cours" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MoocModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="Video_CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

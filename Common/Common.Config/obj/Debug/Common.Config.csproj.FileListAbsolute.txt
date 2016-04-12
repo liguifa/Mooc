@@ -1,0 +1,16 @@
+I:\Mooc\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.dll
+I:\Mooc\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.pdb
+I:\Mooc\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.dll
+I:\Mooc\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.pdb
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.dll
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\Common.Config.pdb
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\log4net.dll
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\bin\Debug\log4net.xml
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.csprojResolveAssemblyReference.cache
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.dll
+H:\Mooc\Tearcher\Tearcher\Services\VideoProcessing\Common.Config\obj\Debug\Common.Config.pdb

@@ -1,0 +1,293 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_tearcher.cshtml";
+    ViewBag.title="我要开课";
+}
+<script>
+    var updateImgCall;
+    var isOpen = true;
+    var isOffline = false;
+    var imgName;
+    var setWeek;
+    var weekStr = "";
+    var dayStr = "周一";
+    var dayTimeStr = "1-2节";
+    var weeks = { "1": false, "2": false, "3": false, "4": false, "5": false, "6": false, "7": false, "8": false, "9": false, "10": false, "11": false, "12": false, "13": false, "14": false, "15": false, "16": false, "17": false, "18": false, "19": false, "20": false }
+    $(document).ready(function ()
+    {
+        $("#js_left_list li:eq(2)").addClass("left_list_active");
+
+        $(".offline-video").click(function ()
+        {
+            $("#offline-file").trigger("click");
+        });
+        $("#offline-file").change(function ()
+        {
+            $(".offline-file-context").text($(this).val());
+        });
+        $(".set-time").click(function ()
+        {
+            weekStr = "";
+            weeks = { "1": false, "2": false, "3": false, "4": false, "5": false, "6": false, "7": false, "8": false, "9": false, "10": false, "11": false, "12": false, "13": false, "14": false, "15": false, "16": false, "17": false, "18": false, "19": false, "20": false }
+            /*设置周数*/
+            setWeek = layer.open({
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['440px', '240px'], //宽高
+                content: $("#week").html()
+            });
+        });
+        $(".aui-radio").click(function ()
+        {
+            $(".set-type-context").text($(this).next().text());
+        });
+        $(".set-open").change(function ()
+        {
+            isOpen = !isOpen;
+            if (isOpen)
+            {
+                $(".set-open-context").text("是");
+            }
+            else
+            {
+                $(".set-open-context").text("否");
+            }
+        });
+        $(".set-offline").change(function ()
+        {
+            isOffline = !isOffline;
+            if (isOffline)
+            {
+                $(".set-offline-context").text("是");
+            }
+            else
+            {
+                $(".set-offline-context").text("否");
+            }
+        });
+        $(".submit").click(function ()
+        {
+            var index = layer.open({
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                closeBtn: 0, //不显示关闭按钮
+                shift: 2,
+                shadeClose: true, //开启遮罩关闭
+                content: '<div style="height:106px;width:260px; overflow: hidden;"><img src="/Static/layer/skin/default/loading-2.gif" style="margin:20px 115px" /><br /><b style="margin:0px 70px">玩命提交中...</b></div>'
+            });
+            $.ajax({
+                type: "post",
+                url: "/Tearcher/AddCourseIn",
+                data: {
+                    name: $("#name").val(),
+                    type: $(".set-type-context").text(),
+                    isOpen: isOpen,
+                    isOffline: isOffline,
+                    time: $(".set-time-context").text(),
+                    imgName: imgName
+                },
+                success: function (data)
+                {
+                    if (data.IsAdd)
+                    {
+                        window.location.href = "/";
+                    }
+                    else
+                    {
+                        layer.msg('添加失败！');
+                    }
+                }
+            });
+        });
+        $(".set-img").click(function ()
+        {
+            $("#img-file").trigger("click");
+        });
+        $("#img-file").change(function ()
+        {
+            $(".img-file-context").text($(this).val());
+            $("#img-file-submit").trigger("click");
+            //var data = "";
+            //while (data == "")
+            //{
+            //
+            //}
+            //alert(data);
+            updateImgCall = setInterval("UpdateImgCall()", 200);
+        });
+    });
+    function UpdateImgCall()
+    {
+        var data = $(window.frames["img-update"].document).find("body").text();
+        if (data != "")
+        {
+            clearInterval(updateImgCall);
+            imgName = data.replace(/\"/g, "").replace(/\\\\/g, "\\");
+        }
+    }
+    function setWeekDay()
+    {
+        layer.close(setWeek);
+        /*设置星期*/
+        setWeek = layer.open({
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['440px', '240px'], //宽高
+            content: $("#weekByDay").html()
+        });
+    }
+    function AddWeek(node)
+    {
+        weekStr = "";
+        weeks[$(node).children("h1").text()] = true;
+        var start = true;
+        for (var i = 1; i <= 20; i++)
+        {
+            if (weeks[i + ""])
+            {
+                if (start)
+                {
+                    if (weeks[(i + 1) + ""])
+                    {
+                        weekStr += i + "-"
+                        start = false;
+                    }
+                    else
+                    {
+                        weekStr += i + ",";
+                    }
+                }
+                else
+                {
+                    if (!weeks[(i + 1) + ""])
+                    {
+                        weekStr += i + ",";
+                        start = true;
+                    }
+                }
+            }
+        }
+        $(node).css("background", "#ccc");
+        weekStr = weekStr.substr(0, weekStr.length - 1) + "周";
+    }
+    function setComplete()
+    {
+        layer.close(setWeek);
+        $(".set-time-context").text(weekStr + " " + dayStr + " " + dayTimeStr);
+    }
+    function setWeekDayChange(node)
+    {
+        dayStr = $(node).val();
+    }
+    function setWeekTimeChange(node)
+    {
+        dayTimeStr = $(node).val();
+    }
+</script>
+
+<div class="aui-card aui-noborder">
+    <div class="aui-form">
+        <div class="aui-input-row">
+            <span class="aui-input-addon">课程名称</span>
+            <input type="text" id="name" class="aui-input" placeholder="课程名称" />
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">课程类别</span>
+            <span class="aui-input-addon set-type-context">信息科学</span>
+            <div class="aui-pull-right">
+                <input class="aui-radio" type="radio" name="type" checked><div class="aui-radio-name">信息科学</div>
+                <input class="aui-radio" type="radio" name="type"><div class="aui-radio-name">语言文史</div>
+                <input class="aui-radio" type="radio" name="type"><div class="aui-radio-name">生命科学</div>
+                <input class="aui-radio" type="radio" name="type"><div class="aui-radio-name">艺术设计</div>
+                <input class="aui-radio" type="radio" name="type"><div class="aui-radio-name">纺织科学</div>
+            </div>
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">是否开放</span>
+            <span class="aui-input-addon set-open-context">是</span>
+            <input type="checkbox" class="aui-switch aui-switch-success aui-pull-right set-open" checked>
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">在线课程</span>
+            <span class="aui-input-addon set-offline-context">否</span>
+            <input type="checkbox" class="aui-switch aui-switch-success aui-pull-right set-offline">
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">开课时间</span>
+            <span class="aui-input-addon offline-file-context"></span>
+            <button class="aui-pull-right offline-video">离线视频</button>
+            <input type="file" hidden="hidden" id="offline-file" />
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">开课时间</span>
+            <span class="aui-input-addon set-time-context">1-20周 周一 1-2节</span>
+            <button class="aui-pull-right set-time">设置时间</button>
+            <div style="display:none" id="set-time-html">
+                <div id="week">
+                    <div id="week-html">
+                        <ul>
+                            <li onclick="AddWeek(this)">第<h1>1</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>2</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>3</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>4</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>5</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>6</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>7</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>8</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>9</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>10</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>11</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>12</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>13</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>14</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>15</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>16</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>17</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>18</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>19</h1>周</li>
+                            <li onclick="AddWeek(this)">第<h1>20</h1>周</li>
+                        </ul>
+                        <button class="aui-pull-right set-weekByDay" onclick="setWeekDay()">确定</button>
+                    </div>
+                </div>
+                <div id="weekByDay">
+                    <div id="weekByDay-html">
+                        <span class="aui-input-addon">开课时间</span>
+                        <select onchange="setWeekDayChange(this)">
+                            <option>周一</option>
+                            <option>周二</option>
+                            <option>周三</option>
+                            <option>周四</option>
+                            <option>周五</option>
+                            <option>周六</option>
+                            <option>周日</option>
+                        </select>
+                        <span class="aui-input-addon">开课节次</span>
+                        <select onchange="setWeekTimeChange(this)">
+                            <option>1-2节</option>
+                            <option>3-4节</option>
+                            <option>5-6节</option>
+                            <option>7-8节</option>
+                            <option>9-10节</option>
+                        </select>
+                        <button class="aui-pull-right set-ok" onclick="setComplete()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aui-input-row">
+            <span class="aui-input-addon">课程封面</span>
+            <span class="aui-input-addon img-file-context"></span>
+            <button class="aui-pull-right set-img">设置封面</button>
+            <div hidden="hidden">
+                <form action="/Tearcher/UpdateFile" method="post" enctype="multipart/form-data" target="img-update">
+                    <input type="file" hidden="hidden" name="img-file" id="img-file" />
+                    <input type="submit" id="img-file-submit" />
+                </form>
+                <iframe hidden="hidden" id="img-update" name="img-update"></iframe>
+            </div>
+        </div>
+        <div class="aui-input-row">
+            <button class="aui-pull-right submit">确定</button>
+        </div>
+    </div>
+</div>

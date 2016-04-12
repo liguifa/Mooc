@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mooc Manager</title>
+    <script src="~/Static/Js/jquery.min.js"></script>
+    <script src="~/Static/easyui/Scripts/jquery.easyui-1.4.3.min.js"></script>
+    <script src="~/Static/easyui/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script src="~/Static/Js/Admin.js"></script>
+    <link href="~/Static/easyui/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Static/easyui/Content/themes/gray/easyui.css" rel="stylesheet" />
+    <link href="~/Static/Css/admin.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north',height:100,title:'Mooc Manager'">
+            <h2>Layout in Panel</h2>
+        </div>
+        <div data-options="region:'south',split:false,height:20,title:'&copy;2015-@DateTime.Now.Year 版权所有'"></div>
+        <div data-options="region:'west',split:true,title:'Menus',width:200,height:800">
+            <div id="menus" class="easyui-accordion" data-options="fit:true">
+                <div title="学生管理">
+                    <ul class="menu-ul">
+                        <li data-url="/Admin/GetStudentList">学生列表</li>
+                   </ul> 
+                </div>
+                <div title="教师管理">
+                    <ul class="menu-ul">
+                        <li data-url="/Admin/GetTearcherList">教师列表</li>
+                    </ul> 
+                </div>
+                <div title="课程管理">
+                    <ul class="menu-ul">
+                        <li data-url="/Admin/GetOfflineList">离线课程</li>
+                        <li data-url="/Admin/GetOnlineList">在线课程</li>
+                    </ul>
+                </div>
+                <div title="系统管理">
+                    <ul class="menu-ul">
+                        <li data-url="/Admin/SystemSet">系统设置</li>
+                        <li data-url="/Admin/UpdateAccount">修改密码</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',title:'Handle',width:800,height:800">
+            <div id="handle" class="easyui-tabs" data-options="fit:true">
+                <div title="欢迎" data-options="fit:true">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

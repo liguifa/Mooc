@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "工大Mooc";
+    ViewBag.navTitle = "";
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    StudentClient.ViewModels.IndexModel index = ViewBag.index as StudentClient.ViewModels.IndexModel;
+}
+
+<div class="images">
+    <div class="aui-bar aui-bar-nav aui-bar-info left-nav">
+        <b>全部分类</b><hr />
+        <strong>大连工业大学</strong><hr />
+        <ul class="lefe-main-nav">
+            <li>
+                <div class="mod-nav-title">
+                    <i class="icon-font i-v-right"></i>
+                    <h3 class="mod-nav__link-nav-first">
+                        <a href="/Course/GetCourseByKey/InformationScience/all" target="_blank">@index.InformationScienceTitle</a>
+                    </h3>
+                </div>
+                <div class="mod-nav-cursur">
+                    <a href="/Course/GetCourseByKey/InformationScience/@index.InformationScienceLinkText1" target="_blank">@index.InformationScienceLinkText1</a>
+                    <a href="/Course/GetCourseByKey/InformationScience/@index.InformationScienceLinkText2" target="_blank">@index.InformationScienceLinkText2</a>
+                </div>
+            </li>
+            <li>
+                <div class="mod-nav-title">
+                    <i class="icon-font i-v-right"></i>
+                    <h3 class="mod-nav__link-nav-first">
+                        <a href="/Course/GetCourseByKey/LanguageHistory/all" target="_blank">@index.LanguageHistoryTitle</a>
+                    </h3>
+                </div>
+                <div class="mod-nav-cursur">
+                    <a href="/Course/GetCourseByKey/LanguageHistory/@index.LanguageHistoryLinkText1">@index.LanguageHistoryLinkText1</a>
+                    <a href="/Course/GetCourseByKey/LanguageHistory/@index.LanguageHistoryLinkText2">@index.LanguageHistoryLinkText2</a>
+                </div>
+            </li>
+            <li>
+                <div class="mod-nav-title">
+                    <i class="icon-font i-v-right"></i>
+                    <h3 class="mod-nav__link-nav-first">
+                        <a href="/Course/GetCourseByKey/LifeSciences/all" target="_blank">@index.LifeSciencesTitle</a>
+                    </h3>
+                </div>
+                <div class="mod-nav-cursur">
+                    <a href="/Course/GetCourseByKey/LifeSciences/@index.LifeSciencesLinkText1" target="_blank">@index.LifeSciencesLinkText1</a>
+                    <a href="/Course/GetCourseByKey/LifeSciences/@index.LifeSciencesLinkText2" target="_blank">@index.LifeSciencesLinkText2</a>
+                </div>
+            </li>
+            <li>
+                <div class="mod-nav-title">
+                    <i class="icon-font i-v-right"></i>
+                    <h3 class="mod-nav__link-nav-first">
+                        <a href="/Course/GetCourseByKey/ArtDesign/all" target="_blank">@index.ArtDesignTitle</a>
+                    </h3>
+                </div>
+                <div class="mod-nav-cursur">
+                    <a href="/Course/GetCourseByKey/ArtDesign/@index.ArtDesignLinkText1" target="_blank">@index.ArtDesignLinkText1</a>
+                    <a href="/Course/GetCourseByKey/ArtDesign/@index.ArtDesignLinkText2" target="_blank">@index.ArtDesignLinkText2</a>
+                </div>
+            </li>
+            <li>
+                <div class="mod-nav-title">
+                    <i class="icon-font i-v-right"></i>
+                    <h3 class="mod-nav__link-nav-first">
+                        <a href="/Course/GetCourseByKey/TextileScience/all" target="_blank">@index.TextileScienceTitle</a>
+                    </h3>
+                </div>
+                <div class="mod-nav-cursur">
+                    <a href="/Course/GetCourseByKey/TextileScience/@index.TextileScienceLinkText1" target="_blank">@index.TextileScienceLinkText1</a>
+                    <a href="/Course/GetCourseByKey/TextileScience/@index.TextileScienceLinkText2" target="_blank">@index.TextileScienceLinkText2</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul>
+        <li>
+            <img src="~/Static/update/images/1.jpg" />
+        </li>
+    </ul>
+</div>
+<ul class="course-list">
+    <li>
+        <h2>@index.InformationScienceTitle</h2>
+        <ul class="aui-list-view aui-grid-view course-list-item">
+            @foreach (StudentClient.Models.Cours course in index.InformationScience)
+            {
+                <li class="aui-list-view-cell aui-img aui-col-xs-6 course">
+                    <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+                    <div class="aui-img-body">
+                        @course.Course_Name
+                    </div>
+                </li>
+    }
+        </ul>
+    </li>
+    <li>
+        <h2>@index.LanguageHistoryTitle</h2>
+        <ul class="aui-list-view aui-grid-view course-list-item">
+            @foreach (StudentClient.Models.Cours course in index.LanguageHistory)
+            {
+                <li class="aui-list-view-cell aui-img aui-col-xs-6 course">
+                    <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+                    <div class="aui-img-body">
+                        @course.Course_Name
+                    </div>
+                </li>
+    }
+        </ul>
+    </li>
+    <li>
+        <h2>@index.LifeSciencesTitle</h2>
+        <ul class="aui-list-view aui-grid-view course-list-item">
+            @foreach (StudentClient.Models.Cours course in index.LifeSciences)
+            {
+                <li class="aui-list-view-cell aui-img aui-col-xs-6 course">
+                    <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+                    <div class="aui-img-body">
+                        @course.Course_Name
+                    </div>
+                </li>
+    }
+        </ul>
+    </li>
+    <li>
+        <h2>@index.ArtDesignTitle</h2>
+        <ul class="aui-list-view aui-grid-view course-list-item">
+            @foreach (StudentClient.Models.Cours course in index.ArtDesign)
+            {
+                <li class="aui-list-view-cell aui-img aui-col-xs-6 course">
+                    <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+                    <div class="aui-img-body">
+                        @course.Course_Name
+                    </div>
+                </li>
+    }
+        </ul>
+    </li>
+</ul>

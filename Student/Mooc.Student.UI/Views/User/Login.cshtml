@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    ViewBag.navTitle = "用户登录";
+}
+<link href="~/Static/Css/login.css" rel="stylesheet" />
+<script src="~/Static/Js/jquery.min.js"></script>
+<div class="context_left">
+    <img src="~/Static/Images/login.jpg" />
+</div>
+<div class="context_right">
+    @*<div class="aui-content-padded">
+            <div class="aui-tab">
+                <ul class="aui-tab-nav aui-tab-border">
+                    <li class="active">学生</li>
+                    <li>老师</li>
+                </ul>
+            </div>
+        </div>
+        <div class="context_right_login">
+            <form class="aui-form" action="/User/LoginIn" method="post">
+                <div class="aui-input-row">
+                    <span class="aui-input-addon">email</span>
+                    <input type="email" class="aui-input" placeholder="email" name="username" />
+                </div>
+                <div class="aui-input-row">
+                    <span class="aui-input-addon">password</span>
+                    <input type="password" class="aui-input" placeholder="password" name="password" />
+                </div>
+                <div class="aui-btn-row">
+                    <button type="submit" class="aui-btn aui-btn-success">登录</button>
+                </div>
+            </form>
+        </div>*@
+    <div class="login">
+        <p class="login-logo">
+            <img src="~/Static/Images/logo.png" />
+        </p>
+        <p class="tip">A journey of a thousand miles begins with single step</p>
+        <input type="hidden" id="client_base_url" name="client_base_url" value="">
+        <input type="hidden" id="client_action_base_url" name="client_action_base_url" value="">
+        <dl>
+            <dt>用户名：</dt>
+            <dd><input type="text" name="username" id="username" placeholder="请输入您的账号"></dd>
+        </dl>
+        <dl>
+            <dt>密&nbsp;&nbsp;&nbsp;码：</dt>
+            <dd><input type="password" name="password" id="password" placeholder="请输入您的密码"></dd>
+        </dl>
+
+        <div class="verify_code"></div>
+        <p class="forgot-psd"><a href="/user/password/reset/telecom/">忘记密码？</a> </p>
+        <p class="login-btn"><button type="button" id="login" class="login-button" data-type="0">学生登录</button> </p>
+        <p class="login-btn login-btn-tea"><button type="button" id="login-tea" class="login-button" data-type="1">教师登录</button> </p>
+    </div>
+</div>
+<div class="clear"></div>
+<script>
+    $(document).ready(function ()
+    {
+        var type;
+        $('.login-button').click(function ()
+        {
+            $(this).text("登录中...");
+            $(".login-button").attr("disabled", true);
+            var username = $("#username").val();
+            var password = $("#password").val();
+            type = $(this).attr("data-type");
+            $.ajax({
+                type: "post",
+                url: "/User/LoginIn",
+                data: {
+                    username: username,
+                    password: password,
+                    type: type
+                },
+                success: function (data)
+                {
+                    $(".login-button").removeAttr("disabled");
+                    $("#login").text("学生登录");
+                    $("#login-tea").text("教师登录");
+                    if (data.IsLogin)
+                    {
+                        if (type == "1")
+                        {
+                            window.location.href = "/Tearcher/Course";
+                        }
+                        else
+                        {
+                            window.location.href = "/Home/Index";
+                        }
+                    }
+                    else
+                    {
+                        alert("用户名或密码错误.");
+                    }
+                }
+            });
+        });
+    });
+</script>

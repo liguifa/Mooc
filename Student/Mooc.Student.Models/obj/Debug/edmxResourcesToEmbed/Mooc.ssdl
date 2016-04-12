@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoocModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MoocModelStoreContainer">
+    <EntitySet Name="Answers" EntityType="MoocModel.Store.Answers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Courses" EntityType="MoocModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Homeworks" EntityType="MoocModel.Store.Homeworks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notes" EntityType="MoocModel.Store.Notes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schools" EntityType="MoocModel.Store.Schools" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="MoocModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="MoocModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teachers" EntityType="MoocModel.Store.Teachers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Videos" EntityType="MoocModel.Store.Videos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Answers_Homeworks" Association="MoocModel.Store.FK_Answers_Homeworks">
+      <End Role="Homeworks" EntitySet="Homeworks" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Students" Association="MoocModel.Store.FK_Answers_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_Teachers" Association="MoocModel.Store.FK_Courses_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Homeworks_Courses" Association="MoocModel.Store.FK_Homeworks_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Homeworks" EntitySet="Homeworks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Courses" Association="MoocModel.Store.FK_Notes_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Notes" EntitySet="Notes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Students" Association="MoocModel.Store.FK_Notes_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Notes" EntitySet="Notes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schools_Students" Association="MoocModel.Store.FK_Schools_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teachers_Schools" Association="MoocModel.Store.FK_Teachers_Schools">
+      <End Role="Schools" EntitySet="Schools" />
+      <End Role="Teachers" EntitySet="Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Videos_Teachers" Association="MoocModel.Store.FK_Videos_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Videos" EntitySet="Videos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Videos_Courses" Association="MoocModel.Store.FK_Videos_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="Answer_Id" />
+    </Key>
+    <Property Name="Answer_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Answer_Student" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Answer_Homework" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Answer_Context" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Answer_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Course_Id" />
+    </Key>
+    <Property Name="Course_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Course_Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Course_Teacher" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Course_IsGeneral" Type="bit" Nullable="false" />
+    <Property Name="Course_Week" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Course_IsOpen" Type="bit" Nullable="false" />
+    <Property Name="Course_DayOfWeek" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Course_Time" Type="time" Nullable="false" Precision="7" />
+    <Property Name="Course_Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Course_College" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Course_Major" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Course_IsDel" Type="bit" Nullable="false" />
+    <Property Name="Course_IsOffline" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Homeworks">
+    <Key>
+      <PropertyRef Name="Homework_Id" />
+    </Key>
+    <Property Name="Homework_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Homework_Course" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Homework_CourseNum" Type="int" Nullable="false" />
+    <Property Name="Homework_Type" Type="int" Nullable="false" />
+    <Property Name="Homework_Context" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Homework_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="Note_Id" />
+    </Key>
+    <Property Name="Note_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Note_Course" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Note_Student" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Note_Context" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Note_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Schools">
+    <Key>
+      <PropertyRef Name="School_Id" />
+    </Key>
+    <Property Name="School_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="School_Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="School_Logo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="School_Introduction" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="School_IsRegister" Type="bit" Nullable="false" />
+    <Property Name="School_IsOpen" Type="bit" Nullable="false" />
+    <Property Name="School_Admin" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="School_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Student_Id" />
+    </Key>
+    <Property Name="Student_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Student_StuId" Type="nvarchar" Nullable="false" MaxLength="11" />
+    <Property Name="Student_Password" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Student_Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_School" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Student_Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_StartDate" Type="datetime" Nullable="false" />
+    <Property Name="Student_College" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_Class" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_Image" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_Major" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Student_Sex" Type="bit" Nullable="false" />
+    <Property Name="Student_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+    </Key>
+    <Property Name="Teacher_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Teacher_TeaId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Teacher_Password" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Teacher_Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Teacher_School" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Teacher_Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Teacher_College" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Teacher_Image" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Teacher_Sex" Type="bit" Nullable="false" />
+    <Property Name="Teacher_IsDel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Videos">
+    <Key>
+      <PropertyRef Name="Video_Id" />
+    </Key>
+    <Property Name="Video_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Video_Major" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Video_Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Video_Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Video_Teacher" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Video_College" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Video_IsGeneral" Type="bit" Nullable="false" />
+    <Property Name="Video_Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Video_IsOpen" Type="bit" Nullable="false" />
+    <Property Name="Video_IsDel" Type="bit" Nullable="false" />
+    <Property Name="Video_CourseID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Video_SerialNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Answers_Homeworks">
+    <End Role="Homeworks" Type="MoocModel.Store.Homeworks" Multiplicity="1" />
+    <End Role="Answers" Type="MoocModel.Store.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Homeworks">
+        <PropertyRef Name="Homework_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Answer_Homework" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Students">
+    <End Role="Students" Type="MoocModel.Store.Students" Multiplicity="1" />
+    <End Role="Answers" Type="MoocModel.Store.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Answer_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_Teachers">
+    <End Role="Teachers" Type="MoocModel.Store.Teachers" Multiplicity="1" />
+    <End Role="Courses" Type="MoocModel.Store.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="Course_Teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Homeworks_Courses">
+    <End Role="Courses" Type="MoocModel.Store.Courses" Multiplicity="1" />
+    <End Role="Homeworks" Type="MoocModel.Store.Homeworks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Homeworks">
+        <PropertyRef Name="Homework_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Courses">
+    <End Role="Courses" Type="MoocModel.Store.Courses" Multiplicity="1" />
+    <End Role="Notes" Type="MoocModel.Store.Notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Notes">
+        <PropertyRef Name="Note_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Students">
+    <End Role="Students" Type="MoocModel.Store.Students" Multiplicity="1" />
+    <End Role="Notes" Type="MoocModel.Store.Notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Notes">
+        <PropertyRef Name="Note_Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schools_Students">
+    <End Role="Students" Type="MoocModel.Store.Students" Multiplicity="1" />
+    <End Role="Schools" Type="MoocModel.Store.Schools" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="Schools">
+        <PropertyRef Name="School_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teachers_Schools">
+    <End Role="Schools" Type="MoocModel.Store.Schools" Multiplicity="1" />
+    <End Role="Teachers" Type="MoocModel.Store.Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schools">
+        <PropertyRef Name="School_Id" />
+      </Principal>
+      <Dependent Role="Teachers">
+        <PropertyRef Name="Teacher_School" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Videos_Teachers">
+    <End Role="Teachers" Type="MoocModel.Store.Teachers" Multiplicity="1" />
+    <End Role="Videos" Type="MoocModel.Store.Videos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="Videos">
+        <PropertyRef Name="Video_Teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Videos_Courses">
+    <End Role="Cours" Type="MoocModel.Store.Courses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Video" Type="MoocModel.Store.Videos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="Video_CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

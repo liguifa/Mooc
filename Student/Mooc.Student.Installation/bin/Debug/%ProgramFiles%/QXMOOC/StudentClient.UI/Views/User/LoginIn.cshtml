@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    StudentClient.ViewModels.LoginInModel loginIn = ViewBag.loginIn as StudentClient.ViewModels.LoginInModel;
+}
+
+<meta http-equiv="refresh" content="2;url=@loginIn.JumpUrl">
+
+@if (loginIn.IsLoginSuccess)
+{
+    <h4>登录成功，正在为你跳转首页...</h4>
+}
+else
+{
+    <h4>登录失败，正在跳转登录页...</h4>
+}

@@ -1,0 +1,240 @@
+﻿html {
+    overflow-x: hidden;
+    background: #f4f4f4;
+}
+
+.aside-left {
+    float: left;
+    width: 200px;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+}
+
+    .aside-left .l-nav-area {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 100%;
+    }
+
+.l-nav-area {
+    background: #FFF;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+}
+
+.l-nav .l-nav-item {
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+}
+
+    .l-nav .l-nav-item a {
+        position: relative;
+        height: 45px;
+        line-height: 45px;
+        color: #333;
+        display: block;
+        font-size: 14px;
+        text-indent: 20px;
+        border-left: 4px solid #fff;
+    }
+
+a {
+    text-decoration: none;
+    background: transparent;
+    color: #188eee;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aside-right {
+    width: 1060px;
+    margin-left: 20px;
+    float: right;
+}
+
+.bm-menu-bd {
+    margin: 0;
+    padding: 0;
+    list-style: none outside none;
+}
+
+.mod {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    overflow: visible;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-top: 13px;
+}
+
+    .mod:hover {
+        background: #eeeeee;
+        cursor: pointer;
+    }
+
+.bm-menu-name {
+    color: #999;
+    clear: both;
+    width: 100%;
+}
+
+.bm-menu-more {
+    width: 380px;
+    min-height: 54px;
+    position: relative;
+}
+
+.bm-menu-imgparent {
+    position: absolute;
+    left: 0;
+    width: 91px;
+    height: 51px;
+}
+
+.bm-menu-img {
+    position: relative;
+    float: left;
+    width: 91px;
+    height: 51px;
+    display: block;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.bm-menu-info {
+    padding-left: 102px;
+    color: #999;
+}
+
+.bm-menu-info-top {
+    height: 24px;
+}
+
+.bm-menu-info-top {
+    color: #999;
+    margin-top: -4px;
+    line-height: 20px;
+    max-height: 36px;
+    _height: 36px;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+    .bm-menu-info-top a {
+        width: auto;
+        display: inline;
+        _display: inline-block;
+        _width: 278px;
+        font-size: 14px;
+        color: #3372a2;
+        line-height: 24px;
+        _line-height: 25px;
+        vertical-align: top;
+        white-space: nowrap;
+    }
+
+.bm-menu-info-bottom {
+    margin-top: 0;
+    text-align: left;
+    width: 278px;
+    font-size: 12px;
+}
+
+.bm-left {
+    float: left;
+}
+
+.bm-menu-cost {
+    padding: 0 2px;
+    margin-right: 53px;
+    width: 75px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: right;
+    float: left;
+    margin-left: 200px;
+}
+
+.free {
+    color: #5FB41B;
+}
+
+.bm-menu-status {
+    width: 120px;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 50px;
+}
+
+.bm-menu-action {
+    font-size: 14px;
+    width: 76px;
+    margin-top: -4px;
+    text-align: left;
+    margin-left: 22px;
+}
+
+    .bm-menu-action a {
+        display: block;
+        color: #3372a2;
+        cursor: pointer;
+    }
+
+.left_list_active {
+    border-left: solid 3px #3498db;
+}
+
+    .left_list_active a {
+        color: #3498db !important;
+    }
+
+.aui-input-row button, #week-html button, #weekByDay-html button {
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: #0175c8;
+}
+
+#week-html button, #weekByDay-html button {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+#week-html ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+    #week-html ul li {
+        background: #000;
+        height: 80px;
+        width: 80px;
+        float: left;
+        margin: 10px;
+        color: #fff;
+        padding-left: 30px;
+        cursor: pointer;
+    }
+
+        #week-html ul li:hover {
+            background: #ccc;
+            color: #000;
+        }
+
+.aui-noborder {
+    margin-top: 20px;
+}
+
+.aui-input-row .submit {
+    margin-left: 500px;
+}

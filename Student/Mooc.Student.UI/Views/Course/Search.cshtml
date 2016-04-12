@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    StudentClient.ViewModels.SearchModel courses = ViewBag.courses as StudentClient.ViewModels.SearchModel;
+    ViewBag.navTitle = "搜索课程";
+    ViewBag.Title = "搜索课程";
+}
+
+
+<div class="filter"></div>
+<ul class="aui-list-view aui-grid-view course-list-item">
+    @foreach (StudentClient.Models.Cours course in courses.Courses)
+    {
+        if (course.Videos.Count > 0)
+        {
+            <li class="aui-list-view-cell aui-img aui-col-xs-6 course" onclick="window.location.href = '/Course/Video/'">
+                <img class="aui-img-object image-course" src="~/Static/update/images/@{@course.Course_Id}.png" />
+                <div class="aui-img-body">
+                    @course.Course_Name
+                </div>
+            </li>
+        }
+    }
+</ul>

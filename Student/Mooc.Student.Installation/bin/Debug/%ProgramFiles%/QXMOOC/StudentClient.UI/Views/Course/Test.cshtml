@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+}
+
+
+@*<object id="video" width="400" height="200" border="0" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA">
+    <param name="ShowDisplay" value="0">
+    <param name="ShowControls" value="1">
+    <param name="AutoStart" value="1">
+    <param name="AutoRewind" value="0">
+    <param name="PlayCount" value="0">
+    <param name="Appearance" value="0">
+    <param name="BorderStyle" value="0">
+    <param name="MovieWindowHeight" value="240">
+    <param name="MovieWindowWidth" value="320">
+    <param name="FileName" value="/Static/update/videos/e21eb17e-3293-4d1e-af6a-72bc468ff52c.avi">
+    <embed id="video" width="400" height="200" border="0" showdisplay="0" showcontrols="1" autostart="1" autorewind="0" playcount="0" moviewindowheight="240" moviewindowwidth="320" filename="/Static/update/videos/0.avi" src="/Static/update/videos/0.avi">
+    </embed>
+</object>*@
+<div class="main_left">
+    <h3>中心概况</h3>
+    <div id="video"><div id="a1" style="width:500px;height:500px;"></div></div>
+    <script src="~/Static/Js/jquery.min.js"></script>
+    <script src="/Static/ckplayer/ckplayer.js"></script>
+    <script type="text/javascript">
+    			var flashvars={
+    			    f: 'http://wjcl.yjzx.dlpu.edu.cn/Video/%E6%97%A0%E6%9C%BA%E6%9D%90%E6%96%99%E5%AE%9E%E9%AA%8C%E6%95%99%E5%AD%A6%E4%B8%AD%E5%BF%83.flv',
+        			c:1,
+        			m:1,
+    			};
+    			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
+    			CKobject.embedSWF('/Static/ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '310', '280', flashvars, params);
+    </script>
+</div>
+<script>
+
+    //$(html).ready(function ()
+    //{
+    //    var n = 0;
+    //    while (true)
+    //    {
+    //        var i = 0;
+    //        if (i == 200)
+    //        {
+    //            n++;
+    //            $("#video").attr("filename", "/Static/update/videos/" + n + ".avi")
+    //        }
+    //    }
+    //})
+
+</script>

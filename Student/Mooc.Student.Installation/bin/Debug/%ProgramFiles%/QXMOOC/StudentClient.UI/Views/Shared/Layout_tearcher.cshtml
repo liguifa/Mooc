@@ -1,0 +1,63 @@
+﻿@{
+    StudentClient.ViewModels.GlobalModel global = ViewBag.global as StudentClient.ViewModels.GlobalModel;
+    StudentClient.ViewModels.TearcherGlobalModel tearcherGlobal = ViewBag.tearcherGlobal as StudentClient.ViewModels.TearcherGlobalModel;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+    <script src="~/Static/Js/jquery.min.js"></script>
+    <link href="~/Static/AUI/css/api.css" rel="stylesheet" />
+    <link href="~/Static/AUI/css/aui-win.css" rel="stylesheet" />
+    <link href="~/Static/AUI/css/aui.css" rel="stylesheet" />
+    <link href="~/Static/AUI/css/common.css" rel="stylesheet" />
+    <script src="~/Static/AUI/script/api.js"></script>
+    <script src="~/Static/AUI/script/aui-alert.js"></script>
+    <script src="~/Static/AUI/script/aui-range.js"></script>
+    <script src="~/Static/AUI/script/aui-waterfall.js"></script>
+    <script src="~/Static/AUI/script/swipe.js"></script>
+    <link href="~/Static/Css/basic.css" rel="stylesheet" />
+    <link href="~/Static/Css/tearcher.css" rel="stylesheet" />
+    <link href="~/Static/layer/skin/layer.css" rel="stylesheet" />
+    <script src="~/Static/layer/layer.js"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="aui-bar aui-bar-nav aui-bar-info">
+                <ul class="main-nav">
+                    @foreach (var keyValue in global.Menus)
+                    {
+                        <li><a href="@keyValue.Value" target="_blank">@keyValue.Key</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <aside class="aside-left">
+                <div class="l-nav-area">
+                    <ul class="l-nav" id="js_left_list">
+                        @foreach (var keyValue in tearcherGlobal.Menus)
+                        {
+                            <li class="l-nav-item"><a href="@keyValue.Value" title="@keyValue.Key">@keyValue.Key</a></li>
+                        }
+                    </ul>
+                </div>
+            </aside>
+            <aside class="aside-right">
+                <div class="l-nav-area">
+                    @RenderBody()
+                </div>
+            </aside>
+            <div class="clear"></div>
+        </div>
+        <div class="footer">
+            <i class="icon-font i-logo" title="慕课_专业的在线教育平台"></i>
+            <p>Copyright © 2015 Guifa Lee. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

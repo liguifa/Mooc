@@ -1,0 +1,206 @@
+﻿documnet, html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    background-color: #E5E5E5;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1 Tahoma, Helvetica, Arial,"\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", sans-serif !important;
+}
+
+div {
+    display: block;
+}
+
+.content {
+    width: 315px;
+    height: 345px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    /*margin: 20% auto;*/
+    /*padding: 0 40px;*/
+    padding-left: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+    .content .logo {
+        text-align: center;
+    }
+
+p {
+    margin: 0 0 10px;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.logo img {
+    margin-top: 0px;
+}
+
+img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+.content .tip {
+    height: 30px;
+    line-height: 30px;
+    color: #0175c8;
+}
+
+.content input {
+    padding: 5px 10px;
+    width: 200px;
+}
+
+input, textarea, .uneditable-input {
+    margin-left: 0;
+}
+
+.content dl {
+    width: 320px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px !important;
+}
+
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.content dt {
+    display: inline;
+    color: #0175c8;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dt, dd {
+    line-height: 20px;
+}
+
+.content dd {
+    display: inline;
+}
+
+dd {
+    margin-left: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.content input {
+    padding: 5px 10px;
+    width: 200px;
+}
+
+input, textarea, .uneditable-input {
+    margin-left: 0;
+}
+
+.verify_code {
+    height: 30px;
+    line-height: 30px;
+}
+
+.forgot-psd {
+    width: 260px;
+    height: 20px;
+    line-height: 20px;
+    text-align: right;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.forgot-psd {
+    line-height: 20px;
+    text-align: right;
+}
+
+.content .forgot-psd a {
+    color: #0175c8;
+}
+
+.content .login-btn, .content .login-btn button {
+    display: block;
+    width: 280px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: #0175c8;
+}
+
+.login-btn button {
+    display: block;
+    width: 280px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: #0175c8;
+}

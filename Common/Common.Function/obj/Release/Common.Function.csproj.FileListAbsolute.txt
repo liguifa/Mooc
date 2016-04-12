@@ -1,0 +1,4 @@
+I:\VMM\Common\Common.Function\bin\Release\Common.Function.dll
+I:\VMM\Common\Common.Function\bin\Release\Common.Function.pdb
+I:\VMM\Common\Common.Function\obj\Release\Common.Function.dll
+I:\VMM\Common\Common.Function\obj\Release\Common.Function.pdb

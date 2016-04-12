@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout_basic.cshtml";
+    StudentClient.ViewModels.VideoModel video = ViewBag.video as StudentClient.ViewModels.VideoModel;
+    ViewBag.navTitle = video.VideoList.First().VideoName;
+}
+
+<link href="~/Static/Html5Video/css/video.css" rel="stylesheet" />
+<script src="~/Static/Html5Video/js/jquery-1.8.3.min.js"></script>
+<script src="~/Static/Html5Video/js/jquery.plugin.js"></script>
+<script src="~/Static/Html5Video/js/jquery.video.js"></script>
+<div class="video">
+    @*<div class="video_introduction"></div>*@
+    <div class="video_container"></div>
+    <div class="video_list">
+        <ul class="aui-user-view">
+            @foreach (StudentClient.ViewModels.Video node in video.VideoList)
+            {
+                <li class="aui-user-view-cell aui-img" onclick="window.location.href = '/Course/Video/@node.VideoID'">
+                    <img class="aui-img-object aui-pull-left" src="/Static/Images/video_list_logo.png">
+                    <div class="aui-img-body">
+                        <span>第 @node.SerialNumber 节<em>@node.TearchName</em></span>
+                        <p class='aui-ellipsis-1'>@node.VideoName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+
+<script>
+    $(function ()
+    {
+        $(".video_container").html5video({
+            width: 900,               //Number型，播放器宽度。
+            height: 438,              //Number型，播放器高度。
+            src: "/Static/update/videos/@{@video.VideoID}.mp4",//String型，必填项！要播放的视频的 URL。
+            poster: "/Static/Images/video_start_logo.jpg",//String型，在视频播放之前所显示的图片的 URL。
+            loop: false,              //Boolean型，则当媒介文件完成播放后再次开始播放。
+            preload: true,            //Boolean型，如果出现该属性，则视频在页面加载时进行加载，并预备播放。
+            notsuportmsg: "您的浏览器不支持html5，无法使用该插件！" //String型，浏览器不支持video标签时的提示，可使用html标签。
+        });
+    });
+</script>

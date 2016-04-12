@@ -1,0 +1,16 @@
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\bin\Debug\StudentClient.Models.dll.config
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\bin\Debug\StudentClient.Models.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\bin\Debug\StudentClient.Models.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\bin\Debug\EntityFramework.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\bin\Debug\EntityFramework.xml
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\obj\Debug\StudentClient.Models.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\obj\Debug\StudentClient.Models.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\StudentClient.Models\obj\Debug\StudentClient.Models.csprojResolveAssemblyReference.cache
+H:\Mooc\Student\StudentClient.Models\bin\Debug\StudentClient.Models.dll.config
+H:\Mooc\Student\StudentClient.Models\bin\Debug\StudentClient.Models.dll
+H:\Mooc\Student\StudentClient.Models\bin\Debug\StudentClient.Models.pdb
+H:\Mooc\Student\StudentClient.Models\bin\Debug\EntityFramework.dll
+H:\Mooc\Student\StudentClient.Models\bin\Debug\EntityFramework.xml
+H:\Mooc\Student\StudentClient.Models\obj\Debug\StudentClient.Models.dll
+H:\Mooc\Student\StudentClient.Models\obj\Debug\StudentClient.Models.pdb
+H:\Mooc\Student\StudentClient.Models\obj\Debug\StudentClient.Models.csprojResolveAssemblyReference.cache

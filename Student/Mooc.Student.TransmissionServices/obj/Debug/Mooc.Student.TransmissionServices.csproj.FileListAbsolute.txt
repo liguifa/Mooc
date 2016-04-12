@@ -1,0 +1,14 @@
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.TransmissionServices.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.TransmissionServices.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\bin\Debug\TransmissionContract.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\bin\Debug\TransmissionContract.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Mooc-master\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.TransmissionServices.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.TransmissionServices.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.ITransmissionContract.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\bin\Debug\Mooc.Student.ITransmissionContract.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.TransmissionServices\obj\Debug\Mooc.Student.TransmissionServices.pdb

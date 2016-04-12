@@ -1,0 +1,59 @@
+2016-04-08 19:59:20,330 [10180] INFO  iisexpress.exe [(null)] - Start get course,type:[InformationScience],key:[all]
+2016-04-08 19:59:20,631 [10180] INFO  iisexpress.exe [(null)] - Course count:[20]
+2016-04-08 19:59:39,327 [10180] INFO  iisexpress.exe [(null)] - Start get course,type:[LanguageHistory],key:[all]
+2016-04-08 19:59:39,347 [10180] INFO  iisexpress.exe [(null)] - Course count:[1]
+2016-04-08 19:59:43,813 [10180] INFO  iisexpress.exe [(null)] - Start get course,type:[LifeSciences],key:[all]
+2016-04-08 19:59:43,834 [10180] INFO  iisexpress.exe [(null)] - Course count:[0]
+2016-04-08 20:00:13,368 [8380] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-08 20:00:13,480 [8380] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-08 20:00:13,480 [8380] INFO  iisexpress.exe [(null)] - Login success.
+2016-04-08 22:07:01,770 [ 5] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-08 22:07:01,835 [ 5] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-08 22:07:01,836 [ 5] INFO  iisexpress.exe [(null)] - Login success.
+2016-04-10 13:39:15,462 [ 5] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-10 13:39:16,007 [ 5] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-10 13:39:16,007 [ 5] INFO  iisexpress.exe [(null)] - Login success.
+2016-04-10 14:29:44,104 [44] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-10 14:29:44,167 [44] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-10 14:29:44,168 [44] INFO  iisexpress.exe [(null)] - Login success.
+2016-04-11 19:21:49,252 [ 6] ERROR iisexpress.exe [(null)] - An error has occurred in the get course by index,error:System.Data.EntityException: ??????? Open ???? ---> System.Data.SqlClient.SqlException: ?? SQL Server ???????????????????????????????????????????????? SQL Server ??????????? (provider: Named Pipes Provider, error: 40 - ????? SQL Server ???) ---> System.ComponentModel.Win32Exception: ????????
+   --- ??????????? ---
+   ? System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   ? System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   ? System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   ? System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   ? System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   ? System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   ? System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken)
+   ? System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   ? System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   ? System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   ? System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   ? System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   ? System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   ? System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   ? System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   ? System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   ? System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   ? System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   ? System.Data.SqlClient.SqlConnection.Open()
+   ? System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- ??????????? ---
+   ? System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   ? System.Data.EntityClient.EntityConnection.Open()
+   ? System.Data.Objects.ObjectContext.EnsureConnection()
+   ? System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   ? System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   ? System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   ? System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   ? System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   ? System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   ? StudentClient.DAL.BaseDAL`1.Search[TKey](Expression`1 whereLambda, Expression`1 orderLambda, Int32 pageIndex, Int32 pageSize) ?? H:\Mooc\Student\StudentClient.DAL\BaseDAL.cs:?? 125
+   ? StudentClient.BLL.BaseBLL`1.Search[TKey](Expression`1 whereLambda, Expression`1 orderLambda, Int32 pageIndex, Int32 pageSize) ?? H:\Mooc\Student\StudentClient.BLL\BaseBLL.cs:?? 107
+   ? StudentClient.BLL.Course.GetCourseByIndex() ?? H:\Mooc\Student\StudentClient.BLL\Course.cs:?? 21
+2016-04-11 19:27:54,845 [ 8] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-11 19:27:54,992 [ 8] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-11 19:27:54,992 [ 8] INFO  iisexpress.exe [(null)] - Login success.
+2016-04-11 21:51:11,705 [ 5] INFO  iisexpress.exe [(null)] - Start Login treaher client,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==].
+2016-04-11 21:51:11,761 [ 5] INFO  iisexpress.exe [(null)] - Find users,username:[18840848462@qq.com],password:[0WdZmbxzeURAQilqspDWyg==],realname:[subo].
+2016-04-11 21:51:11,762 [ 5] INFO  iisexpress.exe [(null)] - Login success.

@@ -1,0 +1,5 @@
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.ITransmissionContract\bin\Debug\Mooc.Student.ITransmissionContract.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.ITransmissionContract\bin\Debug\Mooc.Student.ITransmissionContract.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.ITransmissionContract\obj\Debug\Mooc.Student.TransmissionContract.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.ITransmissionContract\obj\Debug\Mooc.Student.ITransmissionContract.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.ITransmissionContract\obj\Debug\Mooc.Student.ITransmissionContract.pdb
