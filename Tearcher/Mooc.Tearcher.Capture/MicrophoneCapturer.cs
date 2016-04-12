@@ -12,7 +12,7 @@
     {
         public MicrophoneCapturer() : base(CaptureType.Audio)
         {
-            this.mCapturer = CapturerFactory.CreateMicrophoneCapturer(0);
+           
         }
 
         public override void Capture<T>(T data)

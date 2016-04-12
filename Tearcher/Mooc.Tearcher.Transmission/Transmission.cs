@@ -1,5 +1,4 @@
-﻿using Mooc.Tearcher.TransmissionContract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -12,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Logger;
 using System.Reflection;
+using Mooc.Student.TransmissionContract;
 
 namespace Mooc.Tearcher.TransmissionServices
 {

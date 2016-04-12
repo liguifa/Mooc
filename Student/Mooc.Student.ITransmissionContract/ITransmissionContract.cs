@@ -12,5 +12,8 @@ namespace Mooc.Student.TransmissionContract
     {
         [OperationContract]
         void SendDesktopCapturer(byte[] data);
+
+        [OperationContract]
+        void Close();
     }
 }

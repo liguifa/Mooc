@@ -85,3 +85,4 @@ C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.BLL\bin\Debug\zh-Hans\Syste
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.BLL\obj\Debug\StudentClient.BLL.csprojResolveAssemblyReference.cache
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.BLL\obj\Debug\StudentClient.BLL.dll
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.BLL\obj\Debug\StudentClient.BLL.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.BLL\bin\Debug\Microsoft.Web.Administration.dll

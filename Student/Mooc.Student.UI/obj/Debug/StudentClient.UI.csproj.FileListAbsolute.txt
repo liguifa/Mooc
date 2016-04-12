@@ -205,3 +205,4 @@ C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.UI\bin\zh-Hans\System.Web.W
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.UI\obj\Debug\StudentClient.UI.csprojResolveAssemblyReference.cache
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.UI\obj\Debug\StudentClient.UI.dll
 C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.UI\obj\Debug\StudentClient.UI.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Student\Mooc.Student.UI\bin\Microsoft.Web.Administration.dll

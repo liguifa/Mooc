@@ -38,8 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dlls\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Tearcher\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,6 +105,7 @@
     <Compile Include="Default\Explorer\ExplorerItem.cs" />
     <Compile Include="Default\Menu\Menu.cs" />
     <Compile Include="Default\Menu\MenuItem.cs" />
+    <Compile Include="Default\Password\PasswordBoxBindingHelper.cs" />
     <Compile Include="Default\Table\Table.cs" />
     <Compile Include="Default\Tabs\Tabs.cs" />
     <Compile Include="Default\TextBox\TextBox.cs" />
@@ -127,6 +128,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -175,6 +177,7 @@
   <ItemGroup>
     <Resource Include="Default\Resource\Images\refresh.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,8 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESBasic">
+      <HintPath>..\..\Common\dlls\ESBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMEncoderLib">
+      <HintPath>..\..\Common\dlls\Interop.WMEncoderLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Oraycn.MCapture">
+      <HintPath>..\..\Common\dlls\Oraycn.MCapture.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,10 +53,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AviFile.cs" />
+    <Compile Include="CameraCapturer.cs" />
+    <Compile Include="CaptureBase.cs" />
     <Compile Include="CaptureFactory.cs" />
     <Compile Include="DesktopCapturer.cs" />
     <Compile Include="MicrophoneCapturer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Logger\Common.Logger.csproj">
+      <Project>{c2c92005-3adc-49e2-85a2-8bd031190485}</Project>
+      <Name>Common.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Tearcher.Transmission\Mooc.Tearcher.Transmission.csproj">
+      <Project>{d51de5f3-8c3d-4ef1-9e94-19148d61e74d}</Project>
+      <Name>Mooc.Tearcher.Transmission</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,7 +15,6 @@ C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\obj\Debug\Logger.pdb
 C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\bin\Debug\Logger.dll.config
 C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\bin\Debug\Logger.dll
 C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\bin\Debug\Logger.pdb
-C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\bin\Debug\log4net.dll
 C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\obj\Debug\Common.Logger.csprojResolveAssemblyReference.cache
 H:\Mooc\Common\Common.Logger\bin\Debug\Logger.dll
 H:\Mooc\Common\Common.Logger\bin\Debug\Logger.pdb
@@ -24,3 +23,4 @@ H:\Mooc\Common\Common.Logger\obj\Debug\Logger.dll
 H:\Mooc\Common\Common.Logger\obj\Debug\Logger.pdb
 H:\Mooc\Common\Common.Logger\bin\Debug\Logger.dll.config
 H:\Mooc\Common\Common.Logger\obj\Debug\Common.Logger.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Common\Common.Logger\bin\Debug\log4net.xml

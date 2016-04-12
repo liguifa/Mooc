@@ -1,0 +1,17 @@
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\obj\Debug\Mooc.Tearcher.Capture.csprojResolveAssemblyReference.cache
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Tearcher.Capture.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Tearcher.Capture.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\ESBasic.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Logger.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Tearcher.Transmission.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Oraycn.MCapture.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\log4net.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Student.ITransmissionContract.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Logger.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Tearcher.Transmission.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\ESBasic.xml
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Oraycn.MCapture.xml
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\log4net.xml
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\bin\Debug\Mooc.Student.ITransmissionContract.pdb
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\obj\Debug\Mooc.Tearcher.Capture.dll
+C:\Users\Guifa.Lee\Desktop\Mooc\Tearcher\Mooc.Tearcher.Capture\obj\Debug\Mooc.Tearcher.Capture.pdb

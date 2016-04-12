@@ -10,11 +10,25 @@ namespace MMS.UI.Default
 {
     public class Window : System.Windows.Window
     {
-        private Button mCloseBtn;
-        private Button mMinBtn;
-        private Button mMaxBtn;
-        private Button mRestoreBtn;
+        private System.Windows.Controls.Button mCloseBtn;
+        private System.Windows.Controls.Button mMinBtn;
+        private System.Windows.Controls.Button mMaxBtn;
+        private System.Windows.Controls.Button mRestoreBtn;
         private DockPanel mTitleBorder;
+
+
+
+        public bool IsCanMax
+        {
+            get { return (bool)GetValue(IsCanMaxProperty); }
+            set { SetValue(IsCanMaxProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsCanMax.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsCanMaxProperty =
+            DependencyProperty.Register("IsCanMax", typeof(bool), typeof(Window), new PropertyMetadata(true));
+
+
 
         public Window()
         {
@@ -25,10 +39,10 @@ namespace MMS.UI.Default
 
         public override void OnApplyTemplate()
         {
-            this.mCloseBtn = (Button)this.GetTemplateChild("closeBtn");
-            this.mMinBtn = (Button)this.GetTemplateChild("minBtn");
-            this.mMaxBtn = (Button)this.GetTemplateChild("maxBtn");
-            this.mRestoreBtn = (Button)this.GetTemplateChild("restoreBtn");
+            this.mCloseBtn = (System.Windows.Controls.Button)this.GetTemplateChild("closeBtn");
+            this.mMinBtn = (System.Windows.Controls.Button)this.GetTemplateChild("minBtn");
+            this.mMaxBtn = (System.Windows.Controls.Button)this.GetTemplateChild("maxBtn");
+            this.mRestoreBtn = (System.Windows.Controls.Button)this.GetTemplateChild("restoreBtn");
             this.mTitleBorder = (DockPanel)this.GetTemplateChild("titleBorder");
             base.OnApplyTemplate();
         }
@@ -40,6 +54,8 @@ namespace MMS.UI.Default
             this.mMaxBtn.Click += mMaxBtn_Click;
             this.mRestoreBtn.Click += mRestoreBtn_Click;
             this.mTitleBorder.MouseMove += mTitleBorder_MouseMove;
+            this.mMaxBtn.DataContext = this;
+            this.mMaxBtn.SetBinding(Button.IsEnabledProperty, "IsCanMax");
         }
 
         void mTitleBorder_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
